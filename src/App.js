@@ -6,9 +6,12 @@ import { FormDataCheck } from './Step4';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import './App.css';
+
 function App() {
   return (
     <>
+    <div className="container bg">
     <Router>
     <ToastContainer/>
       <Switch>
@@ -18,6 +21,7 @@ function App() {
         <Route exact path="/step4" component={FormDataCheck}/>
       </Switch>
     </Router>
+    </div>
   </>
   );
 }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useData } from "./DataContext";
 import { toast } from 'react-toastify';
 
+import './App.css';
 
 export const FormDataCheck = () => {
     const history = useHistory();
@@ -18,7 +19,6 @@ export const FormDataCheck = () => {
     const handleSubmit = async (usrData) => {
         //send to db
         try {
-            
             const payload = {
                 firstname: data.firstName,
                 surname: data.surname,
@@ -31,30 +31,32 @@ export const FormDataCheck = () => {
             
             console.log(payload);
             const res = await axios.post('http://localhost:5000/user-form/save', { payload })
-            console.log(res)
         } catch (error) {
             toast.warning(error.message);
         }
     
         toast(`Thank you ${data.firstName}! Your details are sent!`);
+
         history.push("/")
     }
     return ( 
         <div className="container">
-            <h5>Step 1: Your details</h5>
-            <h5>Step 2: More comments</h5>
-            <h5>Step 3: Final comments</h5>
-            <div>
-                <h5>My Details</h5>
-                <p>First Name:{finalData.firstName}</p>
-                <p>Surname: {finalData.surname}</p>
-                <p>Email: {finalData.email}</p>
-                <p>Telephone: {finalData.phone}</p>
-                <p>Gender: {finalData.gender}</p>
-                <p>Date of Birth: {finalData.birthday + '-' + finalData.birthmonth + '-' + finalData.birthyear}</p>
-                <p>Comments: {finalData.comments}</p>
-                <button type="button" onClick={handleSubmit} className="btn">Submit</button>
-            </div>
+            <section className="module">
+                <h5 className="tab">Step 1: Your details</h5>
+                <h5 className="tab">Step 2: More comments</h5>
+                <h5 className="tab">Step 3: Final comments</h5>
+                <div className="container d-flex flex-column align-items-sm-center">
+                    <h5 className="m-4" >My Details</h5>
+                    <p className="my-data p-2">First Name:{finalData.firstName}</p>
+                    <p className="my-data p-2">Surname: {finalData.surname}</p>
+                    <p className="my-data p-2">Email: {finalData.email}</p>
+                    <p className="my-data p-2">Telephone: {finalData.phone}</p>
+                    <p className="my-data p-2">Gender: {finalData.gender}</p>
+                    <p className="my-data p-2">Date of Birth: {finalData.birthday + '-' + finalData.birthmonth + '-' + finalData.birthyear}</p>
+                    <p className="my-data p-2">Comments: {finalData.comments}</p>
+                    <button type="button" onClick={handleSubmit} className="btn btn-primary">Submit</button>
+                </div>
+            </section>
         </div>
      );
 }

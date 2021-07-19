@@ -1,0 +1,47 @@
+body {
+    background-color: aqua;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.bg {
+    background-color: lightsteelblue;
+    margin: 0px;
+
+}
+
+.module {
+    background-color: silver;
+    border-radius: 10px;
+    margin: 5px;
+    padding:20px
+}
+
+.tab {
+    /* background-color: orange; */
+    border-radius: 10px;
+    padding:15px;
+    color: white;
+    font-size: 0.8rem;
+    background: linear-gradient(orange, rgba(255, 255, 255, 0.297))
+}
+
+input, select, textarea  {
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px 3px #dad9d9;
+    border-style: solid;
+    border-color: white;
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.my-data {
+    border-radius: 10px;
+    background: linear-gradient(rgb(70, 70, 75), rgba(255, 255, 255, 0.297))
+}

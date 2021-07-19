@@ -1,15 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import { useData } from "./DataContext";
-import { toast } from 'react-toastify';
 
+import './App.css';
 
 export const Step3 = () => {
 
 const { setValues, data } = useData();
-// const { formData } = useData() 
 const history = useHistory();
 
 const { register, handleSubmit, errors } = useForm({
@@ -27,19 +25,25 @@ const onSubmit = async (usrData) => {
 
     return (
         <div className="container m-2">
-            <h5>Step 1: Your details</h5>
-            <h5>Step 2: More comments</h5>
-            <h5>Step 3: Final comments</h5>
-            <form onSubmit={handleSubmit(onSubmit)}> 
-                <label htmlFor="comments">Comments</label>
-                <textarea 
-                id="commetns"
-                {...register('comments')} 
-                name="comments" 
-                type="text" 
-                cols="30" rows="5"></textarea>
-                <button type="submit">Next</button>
-            </form>
+            <section className="module">
+                <h5 className="tab">Step 1: Your details</h5>
+                <h5 className="tab">Step 2: More comments</h5>
+                <h5 className="tab">Step 3: Final comments</h5>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="form-group col-xs-4 col-md-4">
+                        <label htmlFor="comments" className="m-2">Comments</label>
+                        <textarea 
+                        id="commetns"
+                        {...register('comments')} 
+                        name="comments" 
+                        type="text" 
+                        cols="30" rows="5"></textarea>
+                    </div> 
+                    <div className="clearfix m-2">
+                        <button type="submit" className="btn btn-primary float-end">Next</button>
+                    </div>
+                </form>
+            </section>
         </div>
     )
 }
